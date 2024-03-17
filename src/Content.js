@@ -1,21 +1,42 @@
-function Content () {
+import searchIcon from './search-icon.svg';
+import macbook from './macbook.png';
+
+
+export function Search () {
     return (
-        <div className="intro">
-                <div className="text">
-                    <h3>„ TBC x USAID - ტექნოლოგიური განათლებისთვის “ პროგრამა
-                        საინფორმაციო ტექნოლოგიებით დაინტერესებულ ადამიანებს
-                        გთავაზობთ სრულად დაფინანსებულ ონლაინ საგანმანათლებლო
-                        პრაქტიკულ კურსებს სხვადასხვა ICT მიმართულებით.
-                        წარმატებულ
-                        კურსდამთავრებულებს ეძლევათ შესაძლებლობა დასაქმდნენ
-                        თიბისისა
-                        და მის პარტნიორ კომპანიებში.
-                    </h3>
-                    <a href="https://www.tbcacademy.ge/usaid-about">გაიგე
-                        მეტი</a>
-                </div>
+        <div className='searchBar'>
+            <input type="text" placeholder="Search" />
+            <img src={searchIcon} alt='search icon' />
         </div>
     );
 }
 
-export default Content;
+export function Product () {
+    return (
+        <div className='grid-item'>
+            <img alt='product' src={macbook} />
+            <h4>title</h4>
+            <p>description</p>
+            <button>Add to Cart</button>
+        </div>
+    );
+}
+
+export function Products () {
+    return (
+        <div className='grid'>
+            <Product/>
+            <Product/>
+            <Product/>
+        </div>
+    );
+}
+
+export function Content () {
+    return (
+        <main className='main'> 
+            <Search/>
+            <Products/>
+        </main>
+    );
+}
