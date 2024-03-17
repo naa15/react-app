@@ -1,3 +1,10 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
+}
+
 .App-logo {
   height: 10vmin;
   pointer-events: none;
@@ -18,33 +25,55 @@
   gap: 200px;
 }
 
-.intro .text {
-  max-width: 60rem;
+.main {
+  flex: 1;
+}
+
+.searchBar {
+  position: relative;
+  max-width: 1080px;
   margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
-.intro .text h3 {
-  color: black;
-  font-size: 1.75rem;
-  font-weight: normal;
-  line-height: 3rem;
-  padding: 2.5rem 0;
+.searchBar input {
+  padding: 3px;
 }
 
-.intro .text a {
-  color: #00A3E0;
-  font-weight: bold;
-  font-size: 1.25rem;
-  padding: 2.5rem 0;
-  display: block;
+.searchBar img {
+  width: 20px;
+  position: absolute;
+  right: 5px;
 }
 
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 20px;
+  row-gap: 50px;
+  max-width: 1080px;
+  margin: 30px auto;
+}
+
+.grid-item img {
+  width: 300px;
+}
+
+.grid-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .footer {
   max-width: 1080px;
   margin: 0 auto;
+  width: 100%;
 }
-
+/* 
 .subscription {
   display: flex;
   flex-direction: column;
@@ -52,7 +81,6 @@
   margin: 0 auto;
   text-align: center;
   border-top: 1px solid #666;
-
 }
 
 .subscription h3 {
@@ -119,7 +147,7 @@
   line-height: 1.125rem;
   letter-spacing: 0.01875rem;
   cursor: pointer;
-}
+} */
 
 .contents {
   border-top: 1px solid #666;
@@ -128,9 +156,7 @@
 .contents .wrapper {
   max-width: 90rem;
   margin: 0 auto;
-  max-width: 90rem;
   display: flex;
-  padding-top: 3.37rem;
   justify-content: space-between;
 }
 
