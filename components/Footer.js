@@ -1,3 +1,9 @@
+'use client';
+
+import Image from "next/image";
+import Link from 'next/link';
+
+
 function Footer () {
     return (
         <div className="footer">
@@ -16,16 +22,16 @@ function Footer () {
                   <nav>
                     <ul>
                       <li>
-                        <a href="./pages/about.html">About Us</a>
+                        <Link href="./pages/about.html">About Us</Link>
                       </li>
                       <li>
-                        <a href="#">Blog</a>
+                        <Link href="#">Blog</Link>
                       </li>
                       <li>
-                        <a href="#">Contact</a>
+                        <Link href="#">Contact</Link>
                       </li>
                       <li>
-                        <a href="#">FAQ</a>
+                        <Link href="#">FAQ</Link>
                       </li>
                     </ul>
                   </nav>
@@ -35,7 +41,7 @@ function Footer () {
                   <nav>
                     <ul>
                       <li>
-                        <a href="#">Terms of service</a>
+                        <Link href="#">Terms of service</Link>
                       </li>
                     </ul>
                   </nav>

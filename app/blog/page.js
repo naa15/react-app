@@ -1,11 +1,12 @@
-import BlogCard from "./BlogCard";
-import data from "./data";
+import BlogCard from '../../components/BlogCard';
+import data from '../../public/data';
  
 function Blog() {
   return (
     <div className="gallery">
-      {data.map((blogcard) => (
+      {data.map((blogcard, index) => (
         <BlogCard
+          key={index}
           name={blogcard.title}
           description={blogcard.description}
           image={blogcard.image}
