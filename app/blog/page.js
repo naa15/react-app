@@ -1,20 +1,51 @@
-import BlogCard from '../../components/BlogCard';
-import data from '../../public/data';
- 
+'use client';
+
+import { useEffect, useState } from "react";
+import BlogCard from "../../components/BlogCard";
+import styles from "../../style/App.css"
+
 function Blog() {
+  const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const response = await fetch("https://dummyjson.com/posts?limit=10");
+        if (!response.ok) {
+          throw new Error("Failed to fetch posts");
+        }
+        const data = await response.json();
+        setBlogs(data["posts"]);
+        setLoading(false);
+      } catch (error) {
+        setError(error.message);
+        setLoading(false);
+      }
+    };
+
+    fetchBlogs();
+  }, []);
+
+  if (loading) {
+    return <div className="loading">Loading...</div>;
+  }
+
+  if (error) {
+    return <div className="error-fetching">Error: {error}</div>;
+  }
+
   return (
     <div className="gallery">
-      {data.map((blogcard, index) => (
+      {blogs.map((blogcard) => (
         <BlogCard
-          key={index}
-          name={blogcard.title}
-          description={blogcard.description}
-          image={blogcard.image}
-          imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkRLSbzesr2YiFqdpK2xp_kH32cgCrriURRa_lHFev3w&s"
+          id={blogcard.id}
+          title={blogcard.title}
         />
       ))}
     </div>
   );
 }
- 
+
 export default Blog;

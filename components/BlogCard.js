@@ -1,18 +1,17 @@
-'use client';
+"use client";
 
-import Image from "next/image";
+import Link from "next/link";
 
-export default function BlogCard({ name, description, imageUrl }) {
-    return (
-      <div className="blogCard">
-        {/* <Image src={imageUrl} alt="Product" /> */}
-        <h3>{name}</h3>
-        <p>{description}</p>
-        <div>
-          <button>
-            Read More
-          </button>
-        </div>
+// import Image from "next/image";
+
+export default function BlogCard({ title, id}) {
+  return (
+    <div className="blogCard">
+      {/* <Image src={thumbnail} width={200} height={200} alt={title}/> */}
+      <h3>{title}...</h3>
+      <div>
+        <Link href={`/blog/${id}`}> Read More</Link>
       </div>
-    );
-  }
+    </div>
+  );
+}
