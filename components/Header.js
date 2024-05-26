@@ -6,7 +6,7 @@ import Image from "next/image";
 function Header() {
   return (
     <div className="header">
-      <Image src="/logo.svg" width="200" height="200" className="App-logo" alt="logo" />
+      <Image src="/logo.svg" width={100} height={100} alt="logo" />
       <nav>
         <ul>
           <li>
