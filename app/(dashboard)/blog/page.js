@@ -1,8 +1,8 @@
 'use client';
 
 import { useEffect, useState } from "react";
-import BlogCard from "../../components/BlogCard";
-import styles from "../../style/App.css"
+import BlogCard from "../../../components/BlogCard";
+import styles from "../../../style/App.css"
 
 function Blog() {
   const [blogs, setBlogs] = useState([]);
