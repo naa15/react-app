@@ -37,11 +37,14 @@ function Blog() {
   }
 
   return (
-    <div className="gallery">
+    <div className="flex flex-col items-center mx-auto my-0 max-w-screen-lg my-12">
       {blogs.map((blogcard) => (
         <BlogCard
           id={blogcard.id}
           title={blogcard.title}
+          body={blogcard.body}
+          tags={blogcard.tags}
+          views={blogcard.views}
         />
       ))}
     </div>

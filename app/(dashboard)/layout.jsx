@@ -9,12 +9,5 @@ export default function Layout({ children }) {
     redirect("/login");
   }
 
-
-  return (
-    <html>
-      <body>
-        {children}
-      </body>
-    </html>
-  );
+  return <div>{children}</div>;
 }
