@@ -4,11 +4,11 @@ import styles from "../../../style/App.css";
 
 function Contact() {
   return (
-    <div className="my-28">
-      <div className="grid sm:grid-cols-2 items-start gap-16 p-4 mx-auto max-w-4xl bg-white font-[sans-serif]">
+    <div className="my-28 main">
+      <div className="grid sm:grid-cols-2 items-start gap-16 p-4 mx-auto max-w-4xl bg-white dark:bg-slate-600 font-[sans-serif]">
         <div>
           <h1 className="text-gray-800 text-3xl font-extrabold">Contact us</h1>
-          <p className="text-sm text-gray-500 mt-4">
+          <p className="text-sm text-gray-500 dark:text-black mt-4">
             Have some big idea or brand to develop and need help? Then reach out
             we'd love to hear about your project and provide help.
           </p>

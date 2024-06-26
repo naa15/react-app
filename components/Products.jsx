@@ -7,7 +7,7 @@ export function Product({ title, id, price, thumbnail }) {
         <Link href={`/products/${id}`}>
           <img alt="product" src={thumbnail} />
           <h4>{title}</h4>
-          <p>{price}</p>
+          <p>${price}</p>
         </Link>
       </div>
       <button>Add to Cart</button>

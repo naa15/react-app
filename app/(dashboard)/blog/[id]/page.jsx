@@ -27,11 +27,11 @@ export default function BlogDetails({ params }) {
   }, [params.id]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className="loading">Loading...</div>;
   }
 
   if (!blog) {
-    return <div>Blog not found</div>;
+    return <div className="error">Blog not found</div>;
   }
 
   return (

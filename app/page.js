@@ -16,7 +16,9 @@ export default function Home() {
 
   return (
     <div className="App">
+      <Header/>
       <Content />
+      <Footer/>
     </div>
   );
 }
