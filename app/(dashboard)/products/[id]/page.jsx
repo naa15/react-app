@@ -1,6 +1,9 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
+import styles from "../../../../style/App.css";
+import Image from "next/image";
+
 
 export default function ProductDetails({ params }) {
   const [product, setProduct] = useState(null);
@@ -9,11 +12,13 @@ export default function ProductDetails({ params }) {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await fetch(`https://dummyjson.com/products/${params.id}`);
+        const response = await fetch(
+          `https://dummyjson.com/products/${params.id}`
+        );
         const data = await response.json();
         setProduct(data);
       } catch (error) {
-        console.error('Error fetching product:', error);
+        console.error("Error fetching product:", error);
       } finally {
         setLoading(false);
       }
@@ -23,18 +28,62 @@ export default function ProductDetails({ params }) {
   }, [params.id]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className="loading">Loading...</div>;
   }
 
   if (!product) {
-    return <div>Product not found</div>;
+    return <div className="error">Product not found</div>;
   }
 
+
   return (
-    <div>
-      <h1>{product.title}</h1>
-      <p>{product.description}</p>
-      <img src={product.thumbnail} alt={product.title} />
+    <div className="bg-gray-100 dark:bg-gray-800 py-24">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col md:flex-row -mx-4">
+          <div className="md:flex-1 px-4">
+            <div className="h-[460px] rounded-lg bg-gray-300 dark:bg-gray-700 mb-4">
+              <Image src={product.thumbnail} width={400} height={400} className="w-full h-full object-cover" alt={product.title}/>
+            </div>
+            <div className="flex justify-center -mx-2 mb-4">
+              <div className="w-1/2 px-2">
+                <button className="w-full bg-gray-900 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 dark:hover:bg-gray-700">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className="md:flex-1 px-4">
+            <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">
+              Product Name
+            </h2>
+            <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
+              {product.title}
+            </p>
+            <div className="flex mb-4">
+              <div className="mr-4">
+                <span className="font-bold text-gray-700 dark:text-gray-300">
+                  Price:
+                </span>
+                <span className="text-gray-600 dark:text-gray-300"> ${product.price}</span>
+              </div>
+              <div>
+                <span className="font-bold text-gray-700 dark:text-gray-300">
+                  Availability:
+                </span>
+                <span className="text-gray-600 dark:text-gray-300"> {product.stock} in Stock</span>
+              </div>
+            </div>
+            <div>
+              <span className="font-bold text-gray-700 dark:text-gray-300">
+                Product Description:
+              </span>
+              <p className="text-gray-600 dark:text-gray-300 text-sm mt-2">
+                {product.description}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

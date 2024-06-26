@@ -43,7 +43,7 @@ export function Content() {
   }
 
   return (
-    <main className="main">  
+    <main className="main dark:bg-slate-600">  
       <Search
         products={products}
         setProducts={setProducts}

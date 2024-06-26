@@ -36,7 +36,7 @@ export function Search({ products, setProducts, setFilteredProducts }) {
     return (
       <div className="searchBar">
         <input
-          className="outline-none"
+          className="outline-none mr-3 w-40"
           type="text"
           placeholder="Search..."
           value={searchQuery}
