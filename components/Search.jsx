@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function Search({ products, setProducts, setFilteredProducts }) {
+export function Search({ products, setProducts, setFilteredProducts, isProduct }) {
     const [searchQuery, setSearchQuery] = useState('');
   
     const debounce = (func, delay) => {
@@ -22,10 +22,19 @@ export function Search({ products, setProducts, setFilteredProducts }) {
     };
   
     const debouncedSetFilteredProducts = debounce((value) => {
-      const filtered = products.filter(product =>
-        product.title.toLowerCase().includes(value.toLowerCase())
-      );
-      setFilteredProducts(filtered);
+      if(isProduct) {
+        const filtered = products.filter(product =>
+          product.title.toLowerCase().includes(value.toLowerCase())
+        );
+        setFilteredProducts(filtered);
+      } else {
+        const filtered = products.filter(product => 
+          product.title.toLowerCase().includes(value.toLowerCase) ||
+          product.body.toLowerCase().includes(value.toLowerCase())
+        );
+        setFilteredProducts(filtered);
+      }
+      
     }, 300);
   
     const handleClick = () => {
@@ -42,7 +51,7 @@ export function Search({ products, setProducts, setFilteredProducts }) {
           value={searchQuery}
           onChange={handleInputChange}
         />
-        <button onClick={handleClick}>sort</button>
+        {isProduct ? <button onClick={handleClick}>sort</button> : ''}
       </div>
     );
   }

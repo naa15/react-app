@@ -9,8 +9,6 @@ import { login } from "../actions";
 export default async function Login() {
   const cookieStore = cookies();
 
-  //   cookieStore.set(AUTH_COOKIE_KEY, "1234");
-
   const cookie = cookieStore.get(AUTH_COOKIE_KEY);
 
   if (cookie) {
