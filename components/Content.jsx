@@ -48,6 +48,7 @@ export function Content() {
         products={products}
         setProducts={setProducts}
         setFilteredProducts={setFilteredProducts}
+        isProduct={true}
       />
       <Products products={filteredProducts} />
     </main>

@@ -13,9 +13,9 @@ export default function Layout({ children }) {
   }
 
   return (
-    <div>
+    <div className="App">
       <Header />
-      <div className="flex-1">{children}</div>
+      <div className="main">{children}</div>
       <Footer />
     </div>
   );
