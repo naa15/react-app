@@ -46,7 +46,7 @@ export default function BlogCard({ title, id, body, tags, views }) {
           </header>
 
           <div className="mt-2 text-sm ">
-            <p>{body.slice(0, 200)}...</p>
+            <p>{body.slice(0, 150)}...</p>
           </div>
 
           <footer className="flex justify-between items-center mt-8">

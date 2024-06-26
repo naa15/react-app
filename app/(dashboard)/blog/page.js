@@ -20,7 +20,7 @@ function Blog() {
         }
         const data = await response.json();
         setBlogs(data["posts"]);
-        setFilteredBlogs(data["products"]);
+        setFilteredBlogs(data["posts"]);
         setLoading(false);
       } catch (error) {
         setError(error.message);

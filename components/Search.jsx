@@ -45,7 +45,7 @@ export function Search({ products, setProducts, setFilteredProducts, isProduct }
     return (
       <div className="searchBar">
         <input
-          className="outline-none mr-3 w-40"
+          className="outline-none mr-3 w-40 rounded-xl"
           type="text"
           placeholder="Search..."
           value={searchQuery}
